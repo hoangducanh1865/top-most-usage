@@ -10,7 +10,7 @@ topmost.download_dataset("20NG", cache_path="./datasets")
 
 
 # Train a model
-dataset = topmost.BasicDataset(".dataset/20NG", device=DEVICE, read_labels=True)
+dataset = topmost.BasicDataset(".datasets/20NG", device=DEVICE, read_labels=True)
 
 model = topmost.ProdLDA(dataset.vocab_size)
 model = model.to(DEVICE)

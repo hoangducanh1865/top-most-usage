@@ -10,7 +10,7 @@ topmost.download_dataset("20NG", cache_path="./datasets")
 
 
 # Train a model
-dataset = topmost.BasicDataset(".datasets/20NG", device=DEVICE, read_labels=True)
+dataset = topmost.BasicDataset("./datasets/20NG", device=DEVICE, read_labels=True)
 
 model = topmost.ProdLDA(dataset.vocab_size)
 model = model.to(DEVICE)
@@ -38,3 +38,8 @@ new_docs = [
 preprocess = Preprocess()
 new_parsed_docs, new_bow = preprocess.parse(new_docs, vocab=dataset.vocab)
 new_theta = trainer.test(torch.as_tensor(new_bow.toarray(), device=DEVICE).float())
+
+print("Topic Diversity:", TD)
+print("Topic Coherence:", TC)
+print("Clustering Results:", clustering_results)
+print("Classification Results:", classification_results)
